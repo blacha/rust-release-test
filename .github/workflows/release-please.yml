@@ -64,7 +64,7 @@ jobs:
         if: matrix.os != 'windows-latest'
         run: |
           cd target/${{ matrix.target }}/release
-          tar czvf ../../../${{ matrix.name }} cotar
+          tar czvf ../../../${{ matrix.name }} rust-release-test
           cd -
 
       - name: Release | Upload artifacts
