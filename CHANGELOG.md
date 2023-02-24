@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0](https://github.com/blacha/rust-release-test/compare/v0.2.0...v0.3.0) (2023-02-24)
+
+
+### Features
+
+* try without draft release ([68076c0](https://github.com/blacha/rust-release-test/commit/68076c0de23948efad2148c15309b296172c4b72))
+
+
+### Bug Fixes
+
+* use gh to upload binaries ([6898ae4](https://github.com/blacha/rust-release-test/commit/6898ae4f63e138f17db0728faf216d7a052fc57e))
+
 ## [0.2.0](https://github.com/blacha/rust-release-test/compare/v0.1.0...v0.2.0) (2023-02-24)
 
 
