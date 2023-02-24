@@ -21,7 +21,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: rust
-          draft: true
+          # draft: true
 
   # # Build sources for every OS
   github_build:
@@ -84,10 +84,10 @@ jobs:
       - name: Setup | Checksums
         run: for file in cotar-*/cotar-*; do openssl dgst -sha256 -r "$file" | awk '{print $1}' > "${file}.sha256"; done
 
-      - name: Setup | Publish Release
-        run: gh release edit ${{ needs.release_please.outputs.tag_name }} --draft=false --repo=blacha/rust-release-test
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Setup | Publish Release
+      #   run: gh release edit ${{ needs.release_please.outputs.tag_name }} --draft=false --repo=blacha/rust-release-test
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build | Add Artifacts to Release
         uses: softprops/action-gh-release@v1
