@@ -2,7 +2,7 @@ name: Release
 on:
   push:
     branches:
-    - master
+      - master
 
 jobs:
   release_please:
@@ -19,7 +19,7 @@ jobs:
           release-type: rust
           draft: true
 
-  # Build sources for every OS
+  # # Build sources for every OS
   github_build:
     name: Build release binaries
     needs: release_please
@@ -69,7 +69,7 @@ jobs:
           name: ${{ matrix.name }}
           path: ${{ matrix.name }}
 
-   upload_artifacts:
+  upload_artifacts:
     name: Add Build Artifacts to Release
     needs: [release_please, github_build, notarize_and_pkgbuild]
     runs-on: ubuntu-latest
