@@ -78,15 +78,15 @@ jobs:
         uses: actions/download-artifact@v3
 
       - name: Setup | Checksums
-        run: for file in starship-*/starship-*; do openssl dgst -sha256 -r "$file" | awk '{print $1}' > "${file}.sha256"; done
+        run: for file in cotar-*/cotar-*; do openssl dgst -sha256 -r "$file" | awk '{print $1}' > "${file}.sha256"; done
 
       - name: Setup | Publish Release
-        run: gh release edit ${{ needs.release_please.outputs.tag_name }} --draft=false --repo=starship/starship
+        run: gh release edit ${{ needs.release_please.outputs.tag_name }} --draft=false --repo=blacha/cotar-rs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build | Add Artifacts to Release
         uses: softprops/action-gh-release@v1
         with:
-          files: starship-*/starship-*
+          files: cotar-*/cotar-*
           tag_name: ${{ needs.release_please.outputs.tag_name }}
