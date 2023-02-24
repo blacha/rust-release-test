@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/blacha/rust-release-test/compare/v0.3.0...v0.3.1) (2023-02-24)
+
+
+### Bug Fixes
+
+* correct upload permissions ([5e86690](https://github.com/blacha/rust-release-test/commit/5e8669095339396ae16b5be563abb23f113dfd87))
+
 ## [0.3.0](https://github.com/blacha/rust-release-test/compare/v0.2.0...v0.3.0) (2023-02-24)
 
 
