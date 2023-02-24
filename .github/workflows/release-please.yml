@@ -34,10 +34,10 @@ jobs:
         include:
           - target: x86_64-unknown-linux-gnu
             os: ubuntu-latest
-            name: cotar-x86_64-unknown-linux-gnu.tar.gz
+            name: rrt-x86_64-unknown-linux-gnu.tar.gz
           - target: arm-unknown-linux-musleabihf
             os: ubuntu-latest
-            name: cotar-arm-unknown-linux-musleabihf.tar.gz
+            name: rrt-arm-unknown-linux-musleabihf.tar.gz
     runs-on: ${{ matrix.os }}
     continue-on-error: true
     # env:
@@ -77,16 +77,18 @@ jobs:
     name: Add Build Artifacts to Release
     needs: [release_please, github_build]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Adding assets require permissions
     steps:
       - name: Setup | Artifacts
         uses: actions/download-artifact@v3
 
       - name: Setup | Checksums
-        run: for file in cotar-*/cotar-*; do openssl dgst -sha256 -r "$file" | awk '{print $1}' > "${file}.sha256"; done
+        run: for file in rrt-*/rrt-*; do openssl dgst -sha256 -r "$file" | awk '{print $1}' > "${file}.sha256"; done
 
       - name: Setup | Publish Release
         run: |
-          gh release upload ${{ needs.release_please.outputs.tag_name }} cotar-*/cotar-* --repo=blacha/rust-release-test
+          gh release upload ${{ needs.release_please.outputs.tag_name }} rrt-*/rrt-* --repo=blacha/rust-release-test
           # gh release edit ${{ needs.release_please.outputs.tag_name }} --draft=false --repo=blacha/rust-release-test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
