@@ -62,11 +62,10 @@ jobs:
           args: --release --locked --target ${{ matrix.target }}
           use-cross: ${{ matrix.os == 'ubuntu-latest' }}
 
-      - name: Post Build | Prepare artifacts [-nix]
-        if: matrix.os != 'windows-latest'
+      - name: Post Build | Prepare artifacts 
         run: |
           cd target/${{ matrix.target }}/release
-          tar czvf ../../../${{ matrix.name }} rust-release-test
+          tar czvf ../../../${{ matrix.name }} rrt-*
           cd -
 
       - name: Release | Upload artifacts
