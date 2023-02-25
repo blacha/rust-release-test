@@ -13,6 +13,8 @@ jobs:
       contents: write
       pull-requests: write
     outputs:
+      cli_release_created: ${{steps.release.outputs['rrt-cli--release_created']}}
+      cli_tag_name: ${{steps.release.outputs['rrt-cli--tag_name']}}
       release_created: ${{ steps.release.outputs.release_created }}
       tag_name: ${{ steps.release.outputs.tag_name }}
     steps:
@@ -28,7 +30,7 @@ jobs:
   github_build:
     name: Build release binaries
     needs: release_please
-    if: ${{ needs.release_please.outputs.release_created == 'true' }}
+    if: ${{ needs.release_please.outputs.cli_release_created == 'true' }}
     strategy:
       fail-fast: false
       matrix:
