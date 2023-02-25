@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/blacha/rust-release-test/compare/a-v0.4.0...a-v0.4.1) (2023-02-25)
+
+
+### Bug Fixes
+
+* correct path names ([b0a9a03](https://github.com/blacha/rust-release-test/commit/b0a9a036a43b696f30722bdb129d924828ffe027))
+
 ## [0.4.0](https://github.com/blacha/rust-release-test/compare/a-v0.3.1...a-v0.4.0) (2023-02-25)
 
 
