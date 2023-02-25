@@ -3,9 +3,12 @@
 version = 3
 
 [[package]]
-name = "rrt-cli"
+name = "rrt"
 version = "0.4.1"
 
 [[package]]
-name = "rrt-lib"
+name = "rrt-cli"
 version = "0.4.1"
+dependencies = [
+ "rrt",
+]

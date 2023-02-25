@@ -1,5 +1,5 @@
 [package]
-name = "rrt-lib"
+name = "rrt"
 version = "0.4.1"
 edition = "2021"
 

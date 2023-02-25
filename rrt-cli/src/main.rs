@@ -1,3 +1,3 @@
 fn main() {
-    println!("Hello, world! cli");
+    println!("{}", rrt::get_name("Cli"));
 }
