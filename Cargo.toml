@@ -1,2 +1,2 @@
 [workspace]
-members = ["a", "b"]
+members = ["rrt-lib", "rrt-cli"]

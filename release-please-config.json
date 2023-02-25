@@ -2,9 +2,8 @@
   "plugins": ["cargo-workspace"],
   "release-type": "rust",
   "packages": {
-    "a": {},
-    "b": {},
-    ".": {}
+    "rrt-cli": {},
+    "rrt-lib": {}
   },
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
 }
