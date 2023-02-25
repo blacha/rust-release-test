@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/blacha/rust-release-test/compare/rrt-cli-v0.5.0...rrt-cli-v0.5.1) (2023-02-25)
+
+
+### Bug Fixes
+
+* correct dependency import path ([716d9e0](https://github.com/blacha/rust-release-test/commit/716d9e0b14e27aa37e59c31d76fe8c8ea717cdef))
+
 ## [0.5.0](https://github.com/blacha/rust-release-test/compare/rrt-cli-v0.4.1...rrt-cli-v0.5.0) (2023-02-25)
 
 
