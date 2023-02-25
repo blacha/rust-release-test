@@ -15,8 +15,7 @@ jobs:
     outputs:
       cli_release_created: ${{steps.release.outputs['rrt-cli--release_created']}}
       cli_tag_name: ${{steps.release.outputs['rrt-cli--tag_name']}}
-      release_created: ${{ steps.release.outputs.release_created }}
-      tag_name: ${{ steps.release.outputs.tag_name }}
+      release_created: ${{ steps.release.outputs['rrt-cli--release_created'] || steps.release.outputs['rrt-lib--release_created'] }}
     steps:
       - uses: google-github-actions/release-please-action@v3
         id: release
@@ -43,8 +42,7 @@ jobs:
             name: rrt-arm-unknown-linux-musleabihf.tar.gz
     runs-on: ${{ matrix.os }}
     continue-on-error: true
-    # env:
-    #   RUSTFLAGS: ${{ matrix.rustflags || '' }}
+
     steps:
       - name: Setup | Checkout
         uses: actions/checkout@v3
@@ -67,7 +65,7 @@ jobs:
       - name: Post Build | Prepare artifacts 
         run: |
           cd target/${{ matrix.target }}/release
-          tar czvf ../../../${{ matrix.name }} rrt-*
+          tar czvf ../../../${{ matrix.name }} rrt
           cd -
 
       - name: Release | Upload artifacts
@@ -91,7 +89,7 @@ jobs:
 
       - name: Setup | Publish Release
         run: |
-          gh release upload ${{ needs.release_please.outputs.tag_name }} rrt-*/rrt-* --repo=blacha/rust-release-test
-          # gh release edit ${{ needs.release_please.outputs.tag_name }} --draft=false --repo=blacha/rust-release-test
+          gh release upload ${{ needs.release_please.outputs.cli_tag_name }} rrt-*/rrt* --repo=blacha/rust-release-test
+          # gh release edit ${{ needs.release_please.outputs.cli_tag_name }} --draft=false --repo=blacha/rust-release-test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
