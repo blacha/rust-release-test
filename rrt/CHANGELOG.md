@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.2](https://github.com/blacha/rust-release-test/compare/rrt-v0.4.1...rrt-v0.4.2) (2023-02-25)
+
+
+### Bug Fixes
+
+* use rrt as lib and rrt-cli for the cli ([f0450cf](https://github.com/blacha/rust-release-test/commit/f0450cf35b7c99cf349bef67e748b392607d2dbe))
+
 ## [0.4.1](https://github.com/blacha/rust-release-test/compare/a-v0.4.0...a-v0.4.1) (2023-02-25)
 
 
