@@ -8,4 +8,4 @@ name = "rrt"
 path = "src/main.rs"
 
 [dependencies]
-rrt = { path = "../rrt-lib" }
+rrt = { path = "../rrt" }
