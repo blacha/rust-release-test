@@ -21,6 +21,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: rust
+          command: manifest
           # draft: true
 
   # # Build sources for every OS
